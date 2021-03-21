@@ -5,12 +5,13 @@ import auto_radnja.gume.AutoGuma;
 /**
  * Interfejs koji predstavlja radnju koja drzi gume
  * @author Teodora
- *
+ * @version 0.2
  */
 public interface Radnja {
 	/**
 	 * Dodavanje gume a
 	 * @param a A kao auto guma koja se dodaje
+	 * 
 	 */
 	void dodajGumu(AutoGuma a);
 
