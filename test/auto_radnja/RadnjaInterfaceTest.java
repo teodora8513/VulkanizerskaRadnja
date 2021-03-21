@@ -57,4 +57,26 @@ public abstract class RadnjaInterfaceTest {
 		assertTrue(result.contains(ag2));
 	}
 
+	@Test
+	void testPronadjiGumuNull() {
+		radnja.dodajGumu(ag);
+		AutoGuma ag2 = new AutoGuma("marka", 20, 242, 88);
+		radnja.dodajGumu(ag2);
+		radnja.dodajGumu(new AutoGuma("marka3", 20, 243, 82));
+		
+		LinkedList<AutoGuma> result = radnja.pronadjiGumu(null);
+		assertNull(result);
+	}
+
+	@Test
+	void testPronadjiGumuNePostoji() {
+		radnja.dodajGumu(ag);
+		AutoGuma ag2 = new AutoGuma("marka", 21, 242, 88);
+		radnja.dodajGumu(ag2);
+		radnja.dodajGumu(new AutoGuma("marka3", 20, 243, 82));
+		
+		LinkedList<AutoGuma> result = radnja.pronadjiGumu("markaNe");
+		assertTrue(result.isEmpty());
+	}
+
 }
