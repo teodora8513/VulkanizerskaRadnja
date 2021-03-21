@@ -34,9 +34,9 @@ class AutoGumaTest {
 	void testAutoGumaStringIntIntInt() {
 		ag = new AutoGuma("marka", 20, 220, 80);
 		assertEquals("marka", ag.getMarkaModel());
-		assertEquals(10, ag.getPrecnik());
-		assertEquals(20, ag.getSirina());
-		assertEquals(30, ag.getVisina());
+		assertEquals(20, ag.getPrecnik());
+		assertEquals(220, ag.getSirina());
+		assertEquals(80, ag.getVisina());
 
 	}
 
@@ -70,7 +70,16 @@ class AutoGumaTest {
 		ag.setPrecnik(precnik);
 		assertEquals(precnik, ag.getPrecnik());
 	}
-
+	
+	@Test
+	void testSetPrecnikException1() {
+		assertThrows(java.lang.RuntimeException.class, ()-> ag.setPrecnik(11));
+	}
+	@Test
+	void testSetPrecnikException2() {
+		assertThrows(java.lang.RuntimeException.class, ()-> ag.setPrecnik(5877));
+	}
+	
 	@ParameterizedTest
 	@CsvSource({
 		"210, true",
@@ -82,6 +91,14 @@ class AutoGumaTest {
 		assertEquals(sirina, ag.getSirina());
 	}
 
+	@Test
+	void testSetSirinaException1() {
+		assertThrows(java.lang.RuntimeException.class, ()-> ag.setPrecnik(100));
+	}
+	@Test
+	void testSetSirinaException2() {
+		assertThrows(java.lang.RuntimeException.class, ()-> ag.setPrecnik(400));
+	}
 	@ParameterizedTest
 	@CsvSource({
 		"60, true",
@@ -91,6 +108,14 @@ class AutoGumaTest {
 	void testSetVisina(int visina) {
 		ag.setVisina(visina);
 		assertEquals(visina, ag.getVisina());
+	}
+	@Test
+	void testSetVisinaException1() {
+		assertThrows(java.lang.RuntimeException.class, ()-> ag.setPrecnik(11));
+	}
+	@Test
+	void testSetVisinaException2() {
+		assertThrows(java.lang.RuntimeException.class, ()-> ag.setPrecnik(100));
 	}
 
 	@Test
