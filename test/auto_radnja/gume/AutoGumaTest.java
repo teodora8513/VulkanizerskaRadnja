@@ -136,11 +136,11 @@ class AutoGumaTest {
 		"marka, marka,20,20,240, 240,85, 80, false",})
 	@DisplayName("Testiranje equals metode")
 	void testEqualsObject(String marka1, String marka2, int precnik1, int precnik2, int sirina1, int sirina2, 
-			int visina1, int visina2) {
+			int visina1, int visina2, boolean expected) {
 		ag = new AutoGuma(marka1, precnik1, sirina1, visina1);
 		AutoGuma ag1 = new AutoGuma(marka2, precnik2, sirina2, visina2);
 
-		assertTrue(ag.equals(ag1));
+		assertEquals(expected,ag.equals(ag1) );
 	}
 
 }
